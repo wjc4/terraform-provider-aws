@@ -43,6 +43,9 @@ func resourceAwsKmsExternalKey() *schema.Resource {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
+				DiffSuppressFunc: func(k, old, new string, d *schema.ResourceData) bool {
+					return false
+				},
 			},
 
 			"deletion_window_in_days": {
